@@ -5,6 +5,7 @@
     --font-color: #D3D0CB;
     --grid-rows: 1;
     --grid-cols: 1;
+    --colouring-color: #1E2019;
 }
 
 body{
@@ -44,9 +45,12 @@ header{
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
+    width: 650px;
+    height: 650px;
+}
+
+.main-grid-toggle{
     grid-gap: 1px;
-    width: 600px;
-    height: 600px;
 }
 
 #grid-size-options{
@@ -61,6 +65,10 @@ header{
 #main-grid div{
     background-color: white;
     padding: 40%;
+}
+
+.grid-cell-colour-change{
+    background-color: var(--colouring-color);
 }
 
 #container{
