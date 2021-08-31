@@ -58,7 +58,7 @@ removeGridBtn.addEventListener("click", function() {
     document.getElementById("main-grid").classList.toggle("main-grid-toggle");
 })
 
-rainbowBtn.addEventListener("click", function() {
+rainbowModeBtn.addEventListener("click", function() {
     rainbowMode = true;
 })
 
