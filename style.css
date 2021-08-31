@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 :root{
     --background-color: #393E41;
     --font-color: #D3D0CB;
+    --grid-rows: 1;
+    --grid-cols: 1;
 }
 
 body{
@@ -15,4 +17,81 @@ header{
     text-align: center;
     font-size: 2em;
     font-family: 'Roboto', sans-serif;
+}
+
+#main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#grid-slider{
+    width: 200px;
+    appearance: none;
+    height: 25px;
+    outline: none;
+    opacity: 0.7;
+}
+
+#grid-slider::-webkit-slider-thumb{
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: black;
+}
+
+#main-grid{
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-gap: 1px;
+    width: 600px;
+    height: 600px;
+}
+
+#grid-size-options{
+    margin-bottom: 10px;
+}
+
+#grid-size-options span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+}
+
+#main-grid div{
+    background-color: white;
+    padding: 40%;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+}
+
+#grid-controls{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 600px){
+    #main-grid{
+        width: 400px;
+        height: 400px;
+    }
+    #grid-slider{
+        width: 100px;
+        height: 15px;
+    }
+    #grid-slider::-webkit-slider-thumb{
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media(max-width: 450px){
+    #main-grid{
+        width: 250px;
+        height: 250px;
+    }
 }

@@ -3,10 +3,25 @@
     <head>
         <title>Sketcher</title>
         <link rel="stylesheet" href="style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header>
             <h1>Sketcher</h1>
         </header>
+        <main id="main-content">
+            <div id="container">
+                <div id="grid-size-options">
+                    <input oninput="changeGridSize();" type="range" min="4" max="32" value="16" id="grid-slider">
+                    <span>Grid Size - </span><span id="display-grid-size"></span>
+                </div>
+                <div id="main-grid"></div>
+                <div id="grid-controls">
+                    
+                </div>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
     </body>
 </html>
