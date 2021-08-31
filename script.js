@@ -22,6 +22,13 @@ let displayGridSlider = document.getElementById("display-grid-size");
 setDefaultGrid();
 document.getElementById("main-grid").classList.toggle("main-grid-toggle");
 
+//Set default grid
+function setDefaultGrid() {
+    container.innerHTML = "";
+    makeRows(value, value);
+    displayGridSlider.innerHTML = value.toString() + "x" + value.toString();   
+}
+
 //Changes the grid size
 function changeGridSize() {
     value = sizeSlider.value;
@@ -30,15 +37,9 @@ function changeGridSize() {
     displayGridSlider.innerHTML = value.toString() + "x" + value.toString();
 }
 
-//Set default grid
-function setDefaultGrid() {
-    container.innerHTML = "";
-    makeRows(value, value);
-    displayGridSlider.innerHTML = value.toString() + "x" + value.toString();   
-}
-
 //Current colouring colour
 let currentColour = "#1E2019";
+let rainbowMode = False
 
 //Reference to grid controls
 normalColourBtn = document.getElementById("default-color-btn");
@@ -48,7 +49,7 @@ removeGridBtn = document.getElementById("remove-grid-btn");
 
 //Event listeners for buttons
 normalColourBtn.addEventListener("click", function() {
-    currentColur = "#1E2019"
+    rainbowMode = False;
 });
 clearBtn.addEventListener("click", function() {
     changeGridSize();
@@ -57,6 +58,14 @@ removeGridBtn.addEventListener("click", function() {
     document.getElementById("main-grid").classList.toggle("main-grid-toggle");
 })
 
+rainbowBtn.addEventListener("click", function() {
+    rainbowMode = True;
+})
+
 function changeColour(e) {
+    if(rainbowMode == True){
+        alert("test");
+    }
     e.target.style.backgroundColor = currentColour;
 }
+
