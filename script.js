@@ -1,6 +1,10 @@
 //Reference to container for the grid
 const container = document.getElementById("main-grid");
 
+//Reference for current mode display
+const currentModeDisplay = document.getElementById("current-mode-display");
+currentModeDisplay.innerHTML = "Current Mode - Normal"
+
 let value = 16
 
 //Creates the grid for the sketching area
@@ -38,18 +42,20 @@ function changeGridSize() {
 }
 
 //Current colouring colour
-let currentColour = "#1E2019";
-let rainbowMode = false
+let currentMode = "color";
+let normalColour = "#1E2019";
 
 //Reference to grid controls
 normalColourBtn = document.getElementById("default-color-btn");
 rainbowModeBtn = document.getElementById("rainbow-mode-btn");
 clearBtn = document.getElementById("clear-btn");
 removeGridBtn = document.getElementById("remove-grid-btn");
+eraserModeBtn = document.getElementById("eraser-mode-btn");
 
 //Event listeners for buttons
 normalColourBtn.addEventListener("click", function() {
-    rainbowMode = false;
+    currentMode = "color"
+    currentModeDisplay.innerHTML = "Current Mode - Normal";
 });
 clearBtn.addEventListener("click", function() {
     changeGridSize();
@@ -59,13 +65,28 @@ removeGridBtn.addEventListener("click", function() {
 })
 
 rainbowModeBtn.addEventListener("click", function() {
-    rainbowMode = true;
+    currentMode = "rainbow";
+    currentModeDisplay.innerHTML = "Current Mode - Rainbow";
+})
+eraserModeBtn.addEventListener("click", function() {
+    currentMode = "eraser";
+    currentModeDisplay.innerHTML = "Current Mode - Eraser";
 })
 
+//Changes colour depending on the mode that's been set by the user
 function changeColour(e) {
-    if(rainbowMode == true){
-        alert("test");
+    if(currentMode == "color"){
+        e.target.style.backgroundColor = normalColour;
     }
-    e.target.style.backgroundColor = currentColour;
+    else if(currentMode == "rainbow"){
+        const randomRed = Math.floor(Math.random() * 256);
+        const randomGreen = Math.floor(Math.random() * 256);
+        const randomBlue = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`
+    }
+    else if(currentMode == "eraser"){
+        e.target.style.backgroundColor = "white"
+    }
+    
 }
 
