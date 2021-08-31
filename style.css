@@ -102,4 +102,7 @@ header{
         width: 250px;
         height: 250px;
     }
+    #grid-controls{
+        flex-direction: column;
+    }
 }

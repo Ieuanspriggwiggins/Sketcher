@@ -39,7 +39,7 @@ function changeGridSize() {
 
 //Current colouring colour
 let currentColour = "#1E2019";
-let rainbowMode = False
+let rainbowMode = false
 
 //Reference to grid controls
 normalColourBtn = document.getElementById("default-color-btn");
@@ -49,7 +49,7 @@ removeGridBtn = document.getElementById("remove-grid-btn");
 
 //Event listeners for buttons
 normalColourBtn.addEventListener("click", function() {
-    rainbowMode = False;
+    rainbowMode = false;
 });
 clearBtn.addEventListener("click", function() {
     changeGridSize();
@@ -59,11 +59,11 @@ removeGridBtn.addEventListener("click", function() {
 })
 
 rainbowBtn.addEventListener("click", function() {
-    rainbowMode = True;
+    rainbowMode = true;
 })
 
 function changeColour(e) {
-    if(rainbowMode == True){
+    if(rainbowMode == true){
         alert("test");
     }
     e.target.style.backgroundColor = currentColour;
